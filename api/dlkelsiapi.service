@@ -1,0 +1,13 @@
+[Unit]
+Description=Python Service for DL (Minh)
+
+[Service]
+ExecStart=/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/.venv/bin/python3 /opt/s26dl/kelsi/DL313_Stock-Prediction-/api/main.py
+WorkingDirectory=/opt/s26dl/kelsi/DL313_Stock-Prediction-/api
+Restart=always
+User=root
+StandardOutput   = append:/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/std.log
+StandardError    = append:/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/std.log
+
+[Install]
+WantedBy=multi-user.target

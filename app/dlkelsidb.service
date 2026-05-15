@@ -1,0 +1,17 @@
+[Unit]
+Description = dlkelsidb
+
+[Service]
+Type             = simple
+User             = root
+Group            = root
+LimitNOFILE      = 4096
+Restart          = always
+RestartSec       = 5s
+StandardOutput   = append:/opt/s26dl/kelsi/DL313_Stock-Prediction-/app/std.log
+StandardError    = append:/opt/s26dl/kelsi/DL313_Stock-Prediction-/app/std.log
+WorkingDirectory = /opt/s26dl/kelsi/DL313_Stock-Prediction-/app
+ExecStart        = /opt/s26dl/kelsi/DL313_Stock-Prediction-/app/pocketbase serve --http=0.0.0.0:10011
+
+[Install]
+WantedBy = multi-user.target

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVDA 50-Day Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-[#0f172a] text-slate-200 min-h-screen p-4 md:p-8">
+
+    <div x-data="predictor()" class="max-w-5xl mx-auto space-y-6">
+        
+        <div class="bg-slate-800/50 border border-slate-700 rounded-3xl p-6 backdrop-blur-md">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h1 class="text-3xl font-black text-emerald-400 tracking-tight">NVDA AI <span class="text-slate-400 font-light">| 50-Day Window</span></h1>
+                    <p class="text-slate-500 text-sm mt-1">Model requires exactly 50 days of history for sequence prediction.</p>
+                </div>
+
+                <div class="flex items-center gap-4 bg-slate-900 p-2 rounded-2xl border border-slate-700">
+                    <div class="px-4">
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase">Target End Date</label>
+                        <input type="date" x-model="endDate" @change="calculateWindow" class="bg-transparent border-none text-emerald-400 font-mono focus:ring-0 cursor-pointer">
+                    </div>
+                    <button @click="runAnalysis()" :disabled="loading" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all disabled:opacity-50">
+                        <span x-text="loading ? 'Analyzing...' : 'Run Prediction'"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-slate-800/50 border border-slate-700 rounded-3xl p-6 min-h-[450px]">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Price History & Forecast</h2>
+                    <template x-if="recordsFound">
+                        <span class="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded" x-text="`Window: ${startDate} to ${endDate}`"></span>
+                    </template>
+                </div>
+                <div class="h-[350px] relative">
+                    <canvas id="stockChart"></canvas>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+                    <span class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Model Forecast Value</span>
+                    <div class="text-5xl font-mono font-bold text-emerald-400" x-text="prediction || '0.00'"></div>
+                    <p class="text-slate-500 text-xs mt-4 leading-relaxed">This value represents the raw output from your API based on the 50-day input matrix.</p>
+                </div>
+
+                <div class="bg-emerald-500/5 border border-emerald-500/20 rounded-3xl p-6">
+                    <h3 class="text-emerald-400 text-sm font-bold mb-2">Data Flow Info</h3>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li class="flex justify-between"><span>Input Rows:</span> <span class="text-slate-200">50</span></li>
+                        <li class="flex justify-between"><span>Features:</span> <span class="text-slate-200">OHLC (4)</span></li>
+                        <li class="flex justify-between"><span>API Endpoint:</span> <span class="text-slate-200">cung.io.vn:10012</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pb = new PocketBase('https://dldbkelsi.cung.io.vn');
+        const AI_API = 'https://dlmdkelsi.cung.io.vn/predict';
+        let chartInstance = null;
+
+        function predictor() {
+            return {
+                endDate: '2022-04-21',
+                startDate: '',
+                loading: false,
+                prediction: null,
+                recordsFound: false,
+
+                init() {
+                    this.calculateWindow();
+                },
+
+                calculateWindow() {
+                    const end = new Date(this.endDate);
+                    const start = new Date(end);
+                    start.setDate(start.getDate() - 50);
+                    this.startDate = start.toISOString().split('T')[0];
+                },
+
+                async runAnalysis() {
+                    this.loading = true;
+                    try {
+                        // 1. Fetch exactly 50 records up to the end date
+                        const records = await pb.collection('NVDA').getList(1, 50, {
+                            filter: `Date <= "${this.endDate} 23:59:59"`,
+                            sort: '-Date', // Fetch latest first, then we reverse
+                        });
+
+                        if (records.items.length < 50) {
+                            throw new Error(`Insufficient data. Found only ${records.items.length} records. Please select a later date.`);
+                        }
+
+                        // Order them chronologically (oldest to newest)
+                        const sortedData = records.items.reverse();
+                        this.recordsFound = true;
+
+                        const labels = sortedData.map(r => r.Date.split(' ')[0]);
+                        const prices = sortedData.map(r => parseFloat(r.Close));
+                        
+                        // 2. Prepare 50x4 Matrix
+                        const matrix = sortedData.map(r => [
+                            parseFloat(r.Open), parseFloat(r.Low), parseFloat(r.High), parseFloat(r.Close)
+                        ]);
+
+                        // 3. API Call
+                        const response = await fetch(AI_API, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ data: matrix })
+                        });
+                        const result = await response.json();
+                        console.log('API Response:', result);
+                        
+                        // Extract prediction (adjust based on your actual JSON keys)
+                        this.prediction = result.prediction !== undefined ? result.prediction : result;
+
+                        // 4. Chart Rendering
+                        this.renderChart(labels, prices, this.prediction);
+
+                    } catch (err) {
+                        alert(err.message);
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                renderChart(labels, prices, forecast) {
+                    const ctx = document.getElementById('stockChart').getContext('2d');
+                    if (chartInstance) chartInstance.destroy();
+
+                    // Logic: Prediction is usually relative or a single next-day point.
+                    // If prediction is normalized (like -0.8), we visualize it relative to the last price.
+                    // Change 'denormalizedPoint' math to match your model's specific scaling logic.
+                    const lastPrice = prices[prices.length - 1];
+                    const denormalizedPoint = 0 + (parseFloat(forecast)); // Sample denormalization
+
+                    chartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: [...labels, "Next Day"],
+                            datasets: [
+                                {
+                                    label: 'Historical Close',
+                                    data: prices,
+                                    borderColor: '#10b981',
+                                    borderWidth: 2,
+                                    pointRadius: 0,
+                                    tension: 0.2,
+                                    fill: true,
+                                    backgroundColor: 'rgba(16, 185, 129, 0.05)'
+                                },
+                                {
+                                    label: 'AI Prediction',
+                                    data: [...new Array(prices.length - 1).fill(null), lastPrice, denormalizedPoint],
+                                    borderColor: '#60a5fa',
+                                    borderDash: [5, 5],
+                                    pointRadius: 4,
+                                    pointBackgroundColor: '#60a5fa',
+                                    tension: 0
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                x: { grid: { display: false }, ticks: { color: '#64748b', maxRotation: 45 } },
+                                y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

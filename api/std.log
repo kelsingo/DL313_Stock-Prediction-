@@ -1,0 +1,137 @@
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [31219]
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778807230.599397   35468 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1778807231.536072   35468 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778807234.929917   35468 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/main.py:37: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Started server process [35468]
+INFO:     Waiting for application startup.
+E0000 00:00:1778807236.485438   35468 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:10012 (Press CTRL+C to quit)
+Loading model...
+Model ready!
+INFO:     172.19.0.2:46586 - "GET /health HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 662ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 686ms/step
+INFO:     157.10.53.29:52796 - "POST /predict HTTP/1.1" 200 OK
+INFO:     172.19.0.2:54850 - "GET /health HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1s/step
+INFO:     157.10.53.29:45970 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35468]
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778808175.672668   36413 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1778808176.675244   36413 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778808179.924423   36413 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/main.py:37: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Started server process [36413]
+INFO:     Waiting for application startup.
+E0000 00:00:1778808181.526510   36413 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:10012 (Press CTRL+C to quit)
+Loading model...
+Model ready!
+INFO:     172.19.0.2:47278 - "GET /health HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 647ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 675ms/step
+INFO:     157.10.53.29:58348 - "POST /predict HTTP/1.1" 200 OK
+INFO:     172.19.0.2:52038 - "GET /health HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 67ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 92ms/step
+INFO:     157.10.53.29:49134 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36413]
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778808476.513598   36644 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1778808476.697844   36644 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778808479.287084   36644 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+/opt/s26dl/kelsi/DL313_Stock-Prediction-/api/main.py:37: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Started server process [36644]
+INFO:     Waiting for application startup.
+E0000 00:00:1778808480.495443   36644 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:10012 (Press CTRL+C to quit)
+Loading model...
+Model ready!
+INFO:     172.19.0.2:52094 - "GET /health HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 594ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 618ms/step
+INFO:     157.10.53.29:42970 - "POST /predict HTTP/1.1" 200 OK
+INFO:     172.19.0.2:45422 - "OPTIONS /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1s/step
+INFO:     172.19.0.2:45422 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 44ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 69ms/step
+INFO:     172.19.0.2:35964 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 139ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 169ms/step
+INFO:     172.19.0.2:50324 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 56ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 85ms/step
+INFO:     172.19.0.2:40782 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 42ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 69ms/step
+INFO:     172.19.0.2:52270 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 41ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 66ms/step
+INFO:     172.19.0.2:58502 - "POST /predict HTTP/1.1" 200 OK
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 48ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 83ms/step
+INFO:     172.19.0.2:48392 - "POST /predict HTTP/1.1" 200 OK
+INFO:     172.19.0.2:46274 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:44928 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33970 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33970 - "GET /wordpress/ HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:38244 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /robots.txt HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /js/twint_ch.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /assets/js/message.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /static/style/sys_files/index.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /static/style/protect/index.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /bot-connect.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /assets/js/auth.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /assets/js/qr_modal.js HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /css/support_parent.css HTTP/1.1" 404 Not Found
+INFO:     172.19.0.2:33048 - "GET /js/lkk_ch.js HTTP/1.1" 404 Not Found
