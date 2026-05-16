@@ -84,8 +84,9 @@ A script to pull the latest data from Pocketbase, preprocess it into the require
 
 
 ---
+# Run Experiments on your own 
 
-# Recommended Environment
+## Recommended Environment
 
 This project is best run on Google Colab:
 
@@ -96,21 +97,21 @@ This project is best run on Google Colab:
 
 ---
 
-# Run on Google Colab (Recommended)
+## Run on Google Colab (Recommended)
 
-## 1. Clone the repository
+### 1. Clone the repository
 
 ```python
 !git clone https://github.com/kelsingo/DL313_Stock-Prediction-.git
 %cd DL313_Stock-Prediction-
 ```
 
-## 2. Load datasets
+### 2. Load datasets
 
 - For Nasdaq stock prediction: Load all datasets from ```nasdaq/datasets``` to Google Colab. 
 
 - For Vietnam stock prediction: datasets are already loaded using ```vnstock``` library in the notebook. 
-## 3. Open notebooks
+### 3. Open notebooks
 
 Run either:
 
@@ -119,16 +120,16 @@ Run either:
 
 ---
 
-# Local Installation (Optional)
+## Local Installation (Optional)
 
-## 1. Clone repository
+### 1. Clone repository
 
 ```bash
 git clone https://github.com/kelsingo/DL313_Stock-Prediction-.git
 cd DL313_Stock-Prediction-
 ```
 
-## 2. Create virtual environment
+### 2. Create virtual environment
 
 ```bash
 python -m venv venv
@@ -136,19 +137,19 @@ python -m venv venv
 
 Activate environment:
 
-### macOS/Linux
+#### macOS/Linux
 
 ```bash
 source venv/bin/activate
 ```
 
-### Windows
+#### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-## 3. Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install pandas numpy matplotlib scikit-learn tensorflow yfinance vnstock
@@ -175,9 +176,8 @@ The project evaluates prediction quality using:
 - Mean Squared Error (MSE)
 - Actual vs predicted stock price plots
 - RSI prediction comparison
-- Forecast horizon analysis
 
-Results show that short-term forecasting generally achieves lower prediction error, while longer forecasting windows become more challenging due to market volatility.
+Results show that the LSTM model is robust on the Nasdaq dataset with stable resutl. Conversely, prediction on Vietnam stock market is less stable, and short-term forecasting generally achieves lower prediction error, while longer forecasting windows become more challenging due to market volatility.
 
 ---
 
