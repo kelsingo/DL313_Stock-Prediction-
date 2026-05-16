@@ -51,6 +51,37 @@ DL313_Stock-Prediction/
 - Multi-day forecasting analysis
 - Jupyter notebook-based workflow
 
+--- 
+# Project Deployment
+1. Model Deployment
+
+The production model (trained on AAPL) is fully deployed and accessible via a REST API endpoint. It accepts inference requests and returns model predictions.
+
+- Endpoint: [https://dlmdkelsi.cung.io.vn/predict](https://dlmdkelsi.cung.io.vn/predict)
+
+2. SaaS User Interface
+
+Database: ```NVDA.csv``` is stored as structured SQL tables within a Pocketbase database instance.
+
+A dedicated HTML web interface has been built to fetch data from Pocketbase and visualize the model's prediction results at predefined intervals, providing an intuitive dashboard for end-users.
+
+Webpage: [https://dldbkelsi.cung.io.vn](https://dldbkelsi.cung.io.vn)
+
+3. Automation Workflow (In Development)
+To fully automate the pipeline from data ingestion to user visualization, the workflow is structured into the following sequential steps:
+
+*Step 1: Data Preparation (Completed)*
+
+The raw market data (NVDA.csv) is ingested, parsed, and stored as structured SQL tables within a Pocketbase database instance.
+
+*Step 2: Realtime Database Update
+Update realtime stock data to the database for realtime prediction.  
+
+*Step 3: Automated Feature Engineering & Inference*
+
+A script to pull the latest data from Pocketbase, preprocess it into the required model, and send a batch request to the FastAPI /predict endpoint.
+
+
 ---
 
 # Recommended Environment
