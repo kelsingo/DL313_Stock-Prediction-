@@ -8,10 +8,10 @@ The project explores time-series forecasting using neural network models to pred
 
 # Data Sources
 
-## 1. Nasdaq Dataset
+#### 1. Nasdaq Dataset
 Historical stock data from major Nasdaq-listed companies.
 
-## 2. Vietnam Stock Market
+#### 2. Vietnam Stock Market
 Historical stock data from the Vietnamese stock market. 
 
 ---
