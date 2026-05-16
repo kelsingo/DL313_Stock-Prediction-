@@ -11,14 +11,15 @@
 
 ## Project Layout 
 
+DL313_Stock-Prediction/
+│
 ├── api/
-│   ├── api_tester.py/
-│   ├── main.py/
+│   ├── api_tester.py
+│   ├── main.py
 │
 ├── app/
-│   ├── pb_public
+│   ├── nasdaq.ipynb
 │   ├── hose.ipynb
-│  
 │
 ├── nasdaq/
 │   ├── datasets/
@@ -28,7 +29,7 @@
 ├── Vietnam-stock-market/
 │   ├── 220061-project-notebook-VN.ipynb
 │
-├── README.md
+└── README.md
 
 ## Get Started
 
