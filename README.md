@@ -12,7 +12,7 @@ The project explores time-series forecasting using neural network models to pred
 Historical stock data from major Nasdaq-listed companies.
 
 ## 2. Vietnam Stock Market
-Historical stock data from the Vietnamese stock market (HOSE).
+Historical stock data from the Vietnamese stock market. 
 
 ---
 
@@ -55,7 +55,7 @@ DL313_Stock-Prediction/
 
 # Recommended Environment
 
-This project is best run on Google Colab because:
+This project is best run on Google Colab:
 
 - No local setup is required
 - GPU acceleration is available
@@ -73,12 +73,11 @@ This project is best run on Google Colab because:
 %cd DL313_Stock-Prediction-
 ```
 
-## 2. Install dependencies
+## 2. Load datasets
 
-```python
-!pip install pandas numpy matplotlib scikit-learn tensorflow yfinance
-```
+- For Nasdaq stock prediction: Load all datasets from ```nasdaq/datasets``` to Google Colab. 
 
+- For Vietnam stock prediction: datasets are already loaded using ```vnstock``` library in the notebook. 
 ## 3. Open notebooks
 
 Run either:
@@ -120,7 +119,7 @@ venv\Scripts\activate
 ## 3. Install dependencies
 
 ```bash
-pip install pandas numpy matplotlib scikit-learn tensorflow yfinance
+pip install pandas numpy matplotlib scikit-learn tensorflow yfinance vnstock
 ```
 
 ---
