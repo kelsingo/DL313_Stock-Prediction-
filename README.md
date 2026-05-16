@@ -10,7 +10,7 @@
 
 
 ## Project Layout 
-
+```
 DL313_Stock-Prediction/
 │
 ├── api/
@@ -30,6 +30,7 @@ DL313_Stock-Prediction/
 │   ├── 220061-project-notebook-VN.ipynb
 │
 └── README.md
+```
 
 ## Get Started
 
