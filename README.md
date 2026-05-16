@@ -157,15 +157,3 @@ Results show that short-term forecasting generally achieves lower prediction err
 - Hyperparameter optimization
 - Real-time prediction API deployment
 
----
-
-# Course Information
-
-**Course:** CS313 - Deep Learning for Artificial Intelligence  
-**Project Type:** Final Project
-
----
-
-# License
-
-This repository is intended for academic and educational purposes only.
