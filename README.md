@@ -26,8 +26,9 @@ DL313_Stock-Prediction/
 │   ├── main.py
 │
 ├── app/
-│   ├── nasdaq.ipynb
-│   ├── hose.ipynb
+│   ├── pb_data
+│   ├── pb_public
+│   ├── pb_migrations
 │
 ├── nasdaq/
 │   ├── datasets/
