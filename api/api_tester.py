@@ -5,9 +5,8 @@ import json
 # --- CONFIGURATION ---
 CSV_FILE = "/opt/s26dl/kelsi/DL313_Stock-Prediction-/nasdaq/datasets/NVDA.csv"
 API_URL = "http://cung.io.vn:10012/predict"
-# List the columns that need to be divided by 1,000
-# COLUMNS_TO_SCALE = ['volume', 'low', 'high', 'close', 'open']
 
+# data must have 4 columns
 
 def test_api_with_30_rows():
     try:
